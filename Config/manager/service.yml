@@ -1,0 +1,2 @@
+invokables :
+	user_manager_main_service : Manager/Service/UserManagerMainService
