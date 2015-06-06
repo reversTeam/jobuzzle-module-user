@@ -4,6 +4,8 @@ class UserManagerMainService extends MasterService {
 
 	_me = undefined;
 
+	#default get for _me;
+
 	initialize : function () {
 		var serviceManager = serviceLocator.get('ServiceManager');
 
@@ -16,20 +18,17 @@ class UserManagerMainService extends MasterService {
 
 	}
 
+	getMeId : function () {
+		return this.getStore()._me;
+	}
+
 	init : function (me) {
 		var router = serviceLocator.get('Router');
 		var translator = serviceLocator.get('Translator');
-		var store = this.getStore();
 
 		this._me = me;
 		translator.setCurrentLang(me._lang);
-
-		console.log('CALL DATA : '+ router.build('/student'));
-		store.request(router.build('/student'));
-		console.log('CALL DATA : '+ router.build('/school'));
-		store.request(router.build('/school'));
-		console.log('CALL DATA : '+ router.build('/company'));
-		store.request(router.build('/company'));
+		
 	}
 
 }
