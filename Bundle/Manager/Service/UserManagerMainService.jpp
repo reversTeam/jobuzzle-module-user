@@ -23,11 +23,14 @@ class UserManagerMainService extends MasterService {
 	}
 
 	init : function (me) {
+		var dispatcher = serviceLocator.get('Dispatcher');
 		var router = serviceLocator.get('Router');
 		var translator = serviceLocator.get('Translator');
 
 		this._me = me;
 		translator.setCurrentLang(me._lang);
+		dispatcher.trigger('User:Me:Init');
+		dispatcher.trigger('Navigation:Link:onClick', window.location.pathname.toString());
 		
 	}
 
