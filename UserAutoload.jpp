@@ -1,9 +1,5 @@
-#import (Config.path +'/Kernel/Autoload/MasterAutoload') = MasterAutoload;
-
 class UserAutoload extends MasterAutoload {
 
 	confModuleName = 'User';
 
 }
-
-#export UserAutoload;
