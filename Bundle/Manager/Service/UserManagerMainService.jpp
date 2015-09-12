@@ -7,7 +7,7 @@
 *       ## #     # #     # #     #    #       #    # #     #  *
 *       ## #     # #     # #     #   #       #     # ######   * @Last Modified by:   revers
 *  ####### #     # #     # #     #  #       #      # #        *
-*  ######   #####   ######  #####  ####### ####### # #######  * @Last Modified time: 2015-08-08 14:32:22
+*  ######   #####   ######  #####  ####### ####### # #######  * @Last Modified time: 2015-09-12 01:47:22
 **************************************************************/
 
 class UserManagerMainService extends MasterService {
@@ -24,7 +24,7 @@ class UserManagerMainService extends MasterService {
 		this.onListen();
 	}
 
-	onListen : function () {
+	public onListen : function () {
 
 	}
 
@@ -32,13 +32,13 @@ class UserManagerMainService extends MasterService {
 		return this.getStore()._me;
 	}
 
-	init : function (me) {
+	public init : function (me) {
 		var dispatcher = serviceLocator.get('Dispatcher');
 		var router = serviceLocator.get('Router');
 		var translator = serviceLocator.get('Translator');
 
 		this._me = me;
-		translator.setCurrentLang(me._lang);
+		translator.setCurrentLang(me['_lang']);
 		dispatcher.trigger('User:Me:Init');
 		dispatcher.trigger('Navigation:Link:onClick', window.location.pathname.toString());
 		
